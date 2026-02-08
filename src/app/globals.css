@@ -4,24 +4,67 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1d1d1f;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Subtle gradient backgrounds */
+.gradient-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(27, 42, 74, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(76, 175, 80, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(27, 42, 74, 0.02) 0%, transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #F5F5F7 100%);
+}
+
+.gradient-navy {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2D4A7A 50%, #1B2A4A 100%);
+}
+
+.gradient-value {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 50%, rgba(76, 175, 80, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(27, 42, 74, 0.04) 0%, transparent 60%),
+    #F5F5F7;
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, #ffffff 0%, #F5F5F7 100%);
+}
+
+.text-gradient-navy {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2D4A7A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #388E3C 0%, #4CAF50 50%, #66BB6A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects for value highlights */
+.glow-navy {
+  box-shadow: 0 0 40px rgba(27, 42, 74, 0.08), 0 0 80px rgba(27, 42, 74, 0.04);
+}
+
+.glow-green {
+  box-shadow: 0 0 40px rgba(76, 175, 80, 0.1), 0 0 80px rgba(76, 175, 80, 0.05);
 }
