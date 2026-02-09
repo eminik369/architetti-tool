@@ -1,9 +1,9 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Play } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +16,8 @@ const fadeUp = {
 
 export default function HeroSection() {
   const t = useTranslations("hero");
+  const td = useTranslations("demo");
+  const locale = useLocale();
 
   const stats = [
     { value: t("stat1value"), label: t("stat1label") },
@@ -122,13 +124,20 @@ export default function HeroSection() {
           ))}
         </motion.div>
 
-        <motion.div custom={5} initial="hidden" animate="visible" variants={fadeUp}>
+        <motion.div custom={5} initial="hidden" animate="visible" variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4">
           <a
             href="#solutions"
             className="inline-flex items-center gap-3 px-10 py-5 gradient-navy text-white rounded-full text-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-ee-navy/20 hover:shadow-xl hover:shadow-ee-navy/30 hover:-translate-y-0.5"
           >
             {t("cta")}
             <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
+            href={`/${locale}/demo`}
+            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-ts-green text-ts-green rounded-full text-base font-semibold hover:bg-ts-green hover:text-white transition-all hover:-translate-y-0.5"
+          >
+            <Play className="w-4 h-4" />
+            {td("heroCtaDemo")}
           </a>
         </motion.div>
       </div>
